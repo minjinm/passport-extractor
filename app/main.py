@@ -21,11 +21,13 @@ async def extract_passport(file: UploadFile = File(...)):
         s3_url = upload_to_s3(image_path, "myfirstbucket00282905", file.filename)
         print("✅ Uploaded to S3:", s3_url)
 
+         import os
+
         insert_to_aurora(data, {
-            "host": "database-2-instance-1.cl46c0agmnre.eu-central-1.rds.amazonaws.com",
-            "user": "admin",
-            "password": "",
-            "database": "passport_data"
+            "host": os.getenv("AURORA_HOST"),
+            "user": os.getenv("AURORA_USER"),
+            "password": os.getenv("AURORA_PASSWORD"),
+            "database": os.getenv("AURORA_DB")
         })
         print("🗃️ Inserted into Aurora")
 
