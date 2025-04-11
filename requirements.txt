@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+pytesseract
+Pillow
+python-multipart
+boto3
+pymysql
+python-multipart
