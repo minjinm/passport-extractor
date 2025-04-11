@@ -24,7 +24,7 @@ async def extract_passport(file: UploadFile = File(...)):
         insert_to_aurora(data, {
             "host": "database-2-instance-1.cl46c0agmnre.eu-central-1.rds.amazonaws.com",
             "user": "admin",
-            "password": "Nn99211737",
+            "password": "",
             "database": "passport_data"
         })
         print("🗃️ Inserted into Aurora")
